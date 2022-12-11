@@ -11,6 +11,11 @@ p {
     line-height: 2;
 }
 
+
+html {
+    overflow-x: hidden;
+    width: 100vw;
+}
 h2 {
     font-size: 1rem;
 }
@@ -37,6 +42,8 @@ header {
 header > img:first-child {
     margin-right: auto;
     max-height: 10vh;
+    max-width: 100vw;
+    overflow: hidden;
     background-color: tomato;
 }
 
@@ -46,6 +53,7 @@ nav {
     display: flex;
     background-color: blue;
 }
+
 
 
 ul {
@@ -75,6 +83,16 @@ ul {
     text-align: center;
 }
 
+@media (max-width: 500px) {
+    .navMenu {
+        overflow-x: scroll;
+    }
+    .navMenu li {
+        min-width: 160px;
+    }
+
+}
+
 .navMenu li:hover {
 background-color: tomato;
 border-radius: 0;
@@ -91,6 +109,12 @@ border-radius: 0;
 
 }
 
+@media (max-width: 500px) {
+    .newBar {
+        height: 6vh;
+    }
+}
+
 
 
 .newBar li {
@@ -102,7 +126,7 @@ border-radius: 0;
     margin-right: 5px;
     background-color: tomato;
     border-radius: 24px;
-    padding: 16px 20px;
+    padding-inline: 20px;
     height: 100%;
     display: flex;
     align-items: center;
@@ -117,13 +141,15 @@ li:last-child {
 
 main {
     display: flex;
-    height: 55vh;
+    /* height: 55vh; */
     width: var(--comfort-width);
     margin: auto;
     margin-top: 20px;
     gap: 5vw;
 
 }
+
+
 
 main aside {
     flex: 1;
@@ -180,17 +206,23 @@ main .content h1 {
 
 .slider {
     display: flex;
+    margin-top: 30px;
     height: 20vh;
     gap: 20px;
+    max-width: 100vw;
     justify-content: center;
+    overflow-x: auto;
+}
+
+@media (max-width: 500px) {
+
 }
 
 .slider img:hover {
     transform: scale(2);
     box-shadow: 0 1px 1px rgba(0,0,0,0.11), 0 2px 2px rgba(0,0,0,0.11), 0 4px 4px rgba(0,0,0,0.11), 0 8px 8px rgba(0,0,0,0.11), 0 16px 16px rgba(0,0,0,0.11), 0 32px 32px rgba(0,0,0,0.11);
-    backdrop-filter: blur(20%);
-
 }
+
 
 
 footer {
@@ -225,4 +257,26 @@ article ul {
     background-color: tomato;
     text-align: center;
     color: white;
+}
+
+@media (max-width: 600px) {
+    main {
+        flex-direction: column;
+        height: initial;
+        
+    };
+    footer {
+        padding: 5%;
+        width: 100vw;
+        height: 31vh;
+        overflow-x: auto;
+
+    }
+    footer ul {
+        list-style: none;
+    }
+
+    .slider {
+        margin-top: 0;
+    }
 }
